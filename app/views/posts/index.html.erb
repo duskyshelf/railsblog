@@ -1,6 +1,10 @@
 <% if @posts.any? %>
   <% @posts.all.each do |post| %>
     <%= post.title %>
+     
+    <%= post.description %>
+
+    <%= post.username %>
     <br>
   <% end %>
 <% else %>
