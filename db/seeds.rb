@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Post.create(title: 'Seeded Title', description: 'Seeded Description', username: 'Seed Person')
+Post.create(title: '2nd Seeded Title', description: '2nd Seed', username: 'Person 2')

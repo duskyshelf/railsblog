@@ -1,1 +1,8 @@
-No posts yet
+<% if @posts.any? %>
+  <% @posts.all.each do |post| %>
+    <%= post.title %>
+    <br>
+  <% end %>
+<% else %>
+  No posts yet
+<% end %>
