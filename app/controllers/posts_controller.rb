@@ -11,7 +11,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
+    post = Post.new(post_params)
+    post.username = current_user.username
+    post.user_id = current_user.id
+    post.save
     redirect_to '/'
   end
 
