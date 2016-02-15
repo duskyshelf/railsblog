@@ -18,6 +18,11 @@ class PostsController < ApplicationController
     redirect_to '/'
   end
 
+  def api
+    posts = Post.all
+    render(json: posts.to_json)
+  end
+
   private
 
   def post_params
