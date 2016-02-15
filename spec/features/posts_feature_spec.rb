@@ -34,18 +34,6 @@ feature 'posts' do
       expect(page).to have_content('CP Test Username')
       expect(current_path).to eq '/'
     end
-
-    scenario 'when not logged ' do
-      visit '/posts/new'
-      fill_in 'Title', with: 'CP Test Title'
-      fill_in 'Description', with: 'CP Test Description'
-      fill_in 'Username', with: 'CP Test Username'
-      click_button 'Create Post'
-      expect(page).to have_content('CP Test Title')
-      expect(page).to have_content('CP Test Description')
-      expect(page).to have_content('CP Test Username')
-      expect(current_path).to eq '/'
-    end
   end
 
 end
