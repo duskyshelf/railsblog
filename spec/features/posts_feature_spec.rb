@@ -3,14 +3,11 @@ require 'rails_helper'
 feature 'posts' do
 
   context 'posts have not been added' do
-
     scenario 'displays notification saying no posts added' do
       visit '/'
       expect(page).to have_content('No posts yet')
     end
   end
-
-
 
   context 'posts have been added' do
     before do
@@ -27,7 +24,18 @@ feature 'posts' do
   end
 
   context 'creating posts' do
-    scenario 'prompts user to fill out a form, then displays the new post' do
+    scenario 'when logged in prompts user to fill out a form, then displays the new post' do
+      visit '/posts/new'
+      fill_in 'Title', with: 'CP Test Title'
+      fill_in 'Description', with: 'CP Test Description'
+      click_button 'Create Post'
+      expect(page).to have_content('CP Test Title')
+      expect(page).to have_content('CP Test Description')
+      expect(page).to have_content('CP Test Username')
+      expect(current_path).to eq '/'
+    end
+
+    scenario 'when not logged ' do
       visit '/posts/new'
       fill_in 'Title', with: 'CP Test Title'
       fill_in 'Description', with: 'CP Test Description'
