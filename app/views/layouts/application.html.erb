@@ -7,9 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1> Blog </h1>
-
-<%= yield %>
-
+  <div>
+    <h1> Blog </h1>
+    <a href="/">Home</a>
+    <a href="/posts/new">New Post</a>
+  </div>
+  <br>
+  <div>
+    <%= yield %>
+  <div>
 </body>
 </html>
